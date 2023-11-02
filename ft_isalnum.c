@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int	c)
+static int	ft_isdigit(int	c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_isalpha(int	c)
+static int	ft_isalpha(int	c)
 {
 	int islower = (c >= 65 && c <= 90);
 	int isupper = (c >= 97 && c <= 122);

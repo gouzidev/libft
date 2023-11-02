@@ -12,7 +12,7 @@ int main()
 	char s6[] = "\n\n\0W\0";
 	char s7[] = "≥≤÷∞∞";
 	char s8[] = "≥≤÷∞∞";
-	
+
 	ft_memset(s1, 33, 5);
 	memset(s2, 33, 5);
 	ft_memset(s3, 33, 5);

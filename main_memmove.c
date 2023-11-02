@@ -14,28 +14,66 @@
 #include "ft_memmove.c"
 #include <string.h>
 
-/*int main()
-{
-	char src[] = "hello world";
-	char dest[] = "death planet";
-	char *res;
-	res = memmove(dest, src, strlen(src) + 1);
-	printf("src ->  %s\n", src);
-	printf("dest -> %s\n", dest);
-	printf("res  -> %s\n", res);
-}*/
-
-
+char src1[9] = "aabbccdd";
+char dst1[9];
+char src2[9] = "aabbccdd";
+char dst2[9];
 
 char str1[9] = "aabbccdd";
+char str2[9] = "aabbccdd";
+char str3[9] = "aabbccdd";
+char str4[9] = "aabbccdd";
+char str5[9] = "aabbccdd";
+char str6[9] = "aabbccdd";
+
 
 int main( void )
 {
-   printf("sizeof dest ->  %lu\n", sizeof(str1));
-   printf("sizeof src  ->  %lu\n", sizeof(str1));
+
+   printf("test 0\n");
+   printf("dyali\n");
+   printf("The string: %s\n", dst1);
+   ft_memmove(dst1, src1, 8);
+   printf("New string: %s\n", dst1);
+
+   printf("dyalhom\n");
+   printf("The string: %s\n", dst2);
+   memmove(dst2, src2, 8);
+   printf("New string: %s\n", dst2);
+
+   printf("test 1\n");
+   printf("dyali\n");
    printf("The string: %s\n", str1);
    ft_memmove(str1, str1 + 2, 6);
    printf("New string: %s\n", str1);
+
+   printf("dyalhom\n");
+   printf("The string: %s\n", str2);
+   memmove(str2, str2 + 2, 6);
+   printf("New string: %s\n", str2);
+
+   printf("test 2\n");
+   printf("dyali\n");
+   printf("The string: %s\n", str3);
+   ft_memmove(str3 + 2, str3, 6);
+   printf("New string: %s\n", str3);
+
+   printf("dyalhom\n");
+   printf("The string: %s\n", str4);
+   memmove(str4 + 2, str4, 6);
+   printf("New string: %s\n", str4);
+
+   printf("test 3\n");
+   printf("dyali\n");
+   printf("The string: %s\n", str5);
+   ft_memmove(str5, str5, 6);
+   printf("New string: %s\n", str5);
+
+   printf("dyalhom\n");
+   printf("The string: %s\n", str6);
+   memmove(str6, str6, 6);
+   printf("New string: %s\n", str6);
+
 }
 
 

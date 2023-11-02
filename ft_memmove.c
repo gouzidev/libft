@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *s)
+#include <stdlib.h>
+
+static int ft_strlen(char *s)
 {
 	int	i;
 
@@ -24,14 +26,33 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int lsrc;
 	int ldst;
+	int i;
+	int j;
 
 	ldst = ft_strlen((char *)dst);
 	lsrc = ft_strlen((char *)src);
-	while (lsrc >= 0 && ldst >= 0)
+	// printf("sizeof dst -> %lu\n", sizeof(dst));
+	// printf("lsrc  -> %i\n", lsrc);
+	printf("size of dst -> %lu\n", sizeof(*dst));
+	if (ldst >= lsrc)
 	{
-		((char *)dst)[ldst - 3] = ((char *)src)[lsrc - 1];
-		lsrc--;
-		ldst--;
+		j = 0;
+		i = 0;
+		while (j < lsrc)
+		{
+			((char *)dst)[i] = ((char *)src)[j];
+			i++;
+			j++;
+		}
+	}
+	else
+	{
+		while (ldst > 0)
+		{
+			((char *)dst)[ldst - 1] = ((char *)src)[lsrc - (lsrc - ldst) - 1];
+			ldst--;
+			lsrc--;
+		}
 	}
 	return (dst);
 }

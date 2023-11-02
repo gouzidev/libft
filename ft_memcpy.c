@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	int i;
@@ -17,8 +19,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		printf("src[%i] -> %c\n", i ,((char *)src)[i]);
-		printf("dst[%i] -> %c\n", i ,((char *)dst)[i]);
 		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
