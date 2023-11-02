@@ -9,49 +9,31 @@
 /*   Updated: 2023/11/01 16:21:59 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_libft.h"
 
-#include <stdlib.h>
-
-static int ft_strlen(char *s)
+static void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	size_t i;
 
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
-	return (i);
+	}
+	return (dst);
 }
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int lsrc;
-	int ldst;
-	int i;
-	int j;
-
-	ldst = ft_strlen((char *)dst);
-	lsrc = ft_strlen((char *)src);
-	// printf("sizeof dst -> %lu\n", sizeof(dst));
-	// printf("lsrc  -> %i\n", lsrc);
-	printf("size of dst -> %lu\n", sizeof(*dst));
-	if (ldst >= lsrc)
-	{
-		j = 0;
-		i = 0;
-		while (j < lsrc)
-		{
-			((char *)dst)[i] = ((char *)src)[j];
-			i++;
-			j++;
-		}
-	}
+	if (dst < src)
+		ft_memcpy(dst, src, len);
 	else
 	{
-		while (ldst > 0)
+		while (len > 0)
 		{
-			((char *)dst)[ldst - 1] = ((char *)src)[lsrc - (lsrc - ldst) - 1];
-			ldst--;
-			lsrc--;
+			((char *)dst)[len - 1] = ((char *)src)[len - 1];
+			len--;
 		}
 	}
 	return (dst);

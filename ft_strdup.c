@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "ft_libft.h"
 
 char *ft_strdup(const char *s1)
 {

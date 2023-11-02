@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "ft_libft.h"
 
 static int len(char const *s1)
 {

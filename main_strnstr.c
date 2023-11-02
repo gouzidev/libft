@@ -15,10 +15,10 @@
 #include <string.h>
 
 char s1[9] = "aabbccdd";
-char s2[9] = "aabbccgg";
+char s2[9] = "a";
 
 char s3[9] = "aabbccdd";
-char s4[9] = "a";
+char s4[9] = "bb";
 
 char s5[] = "text";
 char s6[] = "";
@@ -26,58 +26,39 @@ char s6[] = "";
 char s7[] = "";
 char s8[] = "";
 
+char s9[] = "hello";
+char s10[] = "lo";
+
+char s11[] = "perperfect";
+char s12[] = "per";
+
 char * res;
 
 int main( void )
 {
 
    printf("\ntest 0\n");
-   printf("dyali\n");
-   res = ft_strnstr(s1, s2, strlen(s1));
-   printf("looking for '%s' in '%s': -> %s\n", s1, s2, res);
-
-   printf("dyalhom\n");
-   res = strnstr(s1, s2, strlen(s1));
-   printf("looking for '%s' in '%s': -> %s\n", s1, s2, res);
-
+   res = ft_strnstr(s1, s2, strlen(s2));
+   printf("looking for '%s' in '%s': -> %s\n", s2, s1, res);
 
    printf("\ntest 1\n");
-   printf("dyali\n");
-   res = ft_strnstr(s3, s4, strlen(s3));
-   printf("looking for '%s' in '%s': -> %s\n", s3, s4, res);
-
-   printf("dyalhom\n");
-   res = strnstr(s3, s4, strlen(s3));
-   printf("looking for '%s' in '%s': -> %s\n", s3, s4, res);
-
-
-   printf("\ntest 2\n");
-   printf("dyali\n");
-   res = ft_strnstr(s3, s4, strlen(s3));
-   printf("looking for '%s' in '%s': -> %s\n", s3, s4, res);
-
-   printf("dyalhom\n");
-   res = strnstr(s3, s4, strlen(s3));
-   printf("looking for '%s' in '%s': -> %s\n", s3, s4, res);
-
+   res = ft_strnstr(s3, s4, strlen(s4));
+   printf("looking for '%s' in '%s': -> %s\n", s4, s3, res);
 
    printf("\ntest 3\n");
-   printf("dyali\n");
-   res = ft_strnstr(s5, s6, strlen(s5));
-   printf("looking for '%s' in '%s': -> %s\n", s5, s6, res);
-
-   printf("dyalhom\n");
-   res = strnstr(s5, s6, strlen(s5));
-   printf("looking for '%s' in '%s': -> %s\n", s5, s6, res);
+   res = ft_strnstr(s5, s6, strlen(s6));
+   printf("looking for '%s' in '%s': -> %s\n", s6, s5, res);
 
    printf("\ntest 4\n");
-   printf("dyali\n");
-   res = ft_strnstr(s7, s8, strlen(s7));
-   printf("looking for '%s' in '%s': -> %s\n", s7, s8, res);
+   res = ft_strnstr(s7, s8, strlen(s8));
+   printf("looking for '%s' in '%s': -> %s\n", s8, s7, res);
 
-   printf("dyalhom\n");
-   res = strnstr(s7, s8, strlen(s7));
-   printf("looking for '%s' in '%s': -> %s\n", s7, s8, res);
+   printf("\ntest 5\n");
+   res = ft_strnstr(s9, s10, strlen(s10));
+   printf("looking for '%s' in '%s': -> %s\n", s10, s9, res);
 
+   printf("\ntest 5\n");
+   res = ft_strnstr(s11, s12, strlen(s12));
+   printf("looking for '%s' in '%s': -> %s\n", s12, s11, res);
 
 }

@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "ft_libft.h"
 
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -7,7 +7,6 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
     i = 0;
     while (*s1 == *s2 && s1 && n > ++i)
     {
-       printf("s1 -> %c     s2 -> %c \n",  *s1, *s2);
         s1++;
         s2++;
     }

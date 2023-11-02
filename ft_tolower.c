@@ -1,6 +1,6 @@
-#include <ctype.h>
+#include "ft_libft.h"
 
-int tolower(int c)
+int ft_tolower(int c)
 {
     if (c >= 'A' && c <= 'Z')
         c += 32;

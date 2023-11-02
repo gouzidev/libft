@@ -9,12 +9,11 @@
 /*   Updated: 2023/11/01 11:16:47 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
+#include "ft_libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while (i < n)

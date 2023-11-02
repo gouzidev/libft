@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "ft_libft.h"
 
 static size_t ft_len(char *s)
 {
