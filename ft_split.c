@@ -1,29 +1,98 @@
+#include <string.h>
+#include <stdio.h>
+#include <string.h>
+#include <strings.h>
+#include <stdlib.h>
 static int count_words(char const *s1, char c)
 {
-    int i;
     int count;
-    int end = strlen(s1);
+	int in_word;
 
-    i = 0;
-    while (s1[i])
+	in_word = 0;
+	count = 0;
+    while (*s1)
     {
-        if (s1[i] == c)
-            i++;
-        else
-        // if not space
-        {
-            count++;
-            while (s1[i])
-            {
-                if (s1[i] != c)
-                    i++;
-            }
-
-        }
-        i++;
+		if (*s1 == '\0')
+			return (count);
+		else if (*s1 && *s1 == c)
+		{
+			while (*s1 && *s1 == c)
+				(s1)++;
+		}
+		else if (*s1)
+		{
+			count++;
+			while (*s1 && *s1 != c)
+				s1++;
+		}
     }
+	return (count);
+}
+
+static char	*ft_copy(char const **str, char c)
+{
+	int		i;
+	int		k;
+	int		l;
+	char	*buf;
+
+	i = 0;
+	l = 0;
+	while ((*str)[i])
+	{
+
+		if ((*str)[i++] == c)
+			break ;
+		l++;
+	}
+	i = 0;
+	buf = malloc((l + 1) * sizeof(char));
+	if (buf == NULL)
+		return (0);
+	k = 0;
+	while (i++ < l)
+	{
+		buf[k++] = **str;
+		(*str)++;
+	}
+	buf[k] = '\0';
+	return (buf);
 }
 char **ft_split(char const *s, char c)
 {
+	int	wc;
+	int	i;
+	int	w;
+	char *buf;
+	char **res;
+	wc = count_words(s, c);
+	buf = malloc(strlen((char *)s) + 1);
+	res = (char **) malloc((wc + 1) * sizeof(char *));
+	i = 0;
+	w = 0;
 
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s)
+			res[w++] = ft_copy(&s, c);
+		else
+			break ;
+		s++;
+	}
+	res[w] = 0;
+	return (res);
 }
+
+
+/*int main()
+{
+	char const *txt = "a     b";
+	char **res = ft_split(txt, ' ');
+	int i = 0;
+	while (i < 3)
+	{
+		printf("-> %s\n", res[i++]);
+	}
+}*/
