@@ -5,7 +5,7 @@
 int main()
 {
     char *str = ft_calloc(6, sizeof(char));
-    int i = 0;
+    size_t i = 0;
     while (i < 6)
     {
         printf("%i", str[i]);

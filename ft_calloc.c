@@ -3,7 +3,7 @@
 void    *ft_calloc(size_t count, size_t size)
 {
     size_t i;
-    void    *buffer;
+    unsigned char	*buffer;
     size_t nbytes;
 
     i = 0;
@@ -12,6 +12,6 @@ void    *ft_calloc(size_t count, size_t size)
     if (buffer == 0)
         return (0);
     while (i < nbytes)
-        ((unsigned char *)buffer)[i++] = 0;
+        buffer[i++] = 0;
     return (buffer);
 }
