@@ -6,9 +6,7 @@
 static int count_words(char const *s1, char c)
 {
     int count;
-	int in_word;
 
-	in_word = 0;
 	count = 0;
     while (*s1)
     {
@@ -61,14 +59,10 @@ static char	*ft_copy(char const **str, char c)
 char **ft_split(char const *s, char c)
 {
 	int	wc;
-	int	i;
 	int	w;
-	char *buf;
 	char **res;
 	wc = count_words(s, c);
-	buf = malloc(strlen((char *)s) + 1);
 	res = (char **) malloc((wc + 1) * sizeof(char *));
-	i = 0;
 	w = 0;
 
 	while (*s)

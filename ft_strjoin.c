@@ -33,6 +33,5 @@ char *ft_strjoin(char const *s1, char const *s2)
         j++;
     }
     output[i] = '\0';
-    printf("i -> %i\n", i);
     return (output);
 }
