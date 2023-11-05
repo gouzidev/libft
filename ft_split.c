@@ -1,15 +1,15 @@
-#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <stdlib.h>
-static int count_words(char const *s1, char c)
+
+static int	count_words(char const *s1, char c)
 {
-    int count;
+	int	count;
 
 	count = 0;
-    while (*s1)
-    {
+	while (*s1)
+	{
 		if (*s1 == '\0')
 			return (count);
 		else if (*s1 && *s1 == c)
@@ -23,7 +23,7 @@ static int count_words(char const *s1, char c)
 			while (*s1 && *s1 != c)
 				s1++;
 		}
-    }
+	}
 	return (count);
 }
 
@@ -38,7 +38,6 @@ static char	*ft_copy(char const **str, char c)
 	l = 0;
 	while ((*str)[i])
 	{
-
 		if ((*str)[i++] == c)
 			break ;
 		l++;
@@ -56,15 +55,15 @@ static char	*ft_copy(char const **str, char c)
 	buf[k] = '\0';
 	return (buf);
 }
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int	wc;
-	int	w;
-	char **res;
-	wc = count_words(s, c);
-	res = (char **) malloc((wc + 1) * sizeof(char *));
-	w = 0;
+	int		wc;
+	int		w;
+	char	**res;
 
+	wc = count_words(s, c);
+	res = (char **)malloc((wc + 1) * sizeof(char *));
+	w = 0;
 	while (*s)
 	{
 		while (*s && *s == c)
@@ -78,7 +77,6 @@ char **ft_split(char const *s, char c)
 	res[w] = 0;
 	return (res);
 }
-
 
 /*int main()
 {

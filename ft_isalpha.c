@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 #include "ft_libft.h"
 
-int	ft_isalpha(int	c)
+int	ft_isalpha(int c)
 {
-	int islower = (c >= 65 && c <= 90);
-	int isupper = (c >= 97 && c <= 122);
+	int	islower;
+	int	isupper;
+
+	islower = (c >= 65 && c <= 90);
+	isupper = (c >= 97 && c <= 122);
 	return (islower || isupper);
 }
