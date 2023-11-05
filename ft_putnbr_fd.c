@@ -1,4 +1,3 @@
-#include "ft_libft.h"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,13 +6,13 @@
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 11:24:42 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/09/16 15:15:33 by sgouzi           ###   ########.fr       */
+/*   Updated: 2023/11/05 23:07:13 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_print_rec(int n, int fd)
+static void	ft_print_rec(int n, int fd)
 {
 	if (n > 0)
 	{
@@ -33,7 +32,6 @@ void	ft_putnbr_fd(int n, int fd)
 		if (n < 0)
 		{
 			ft_putchar_fd('-', fd);
-
 			n = -n;
 		}
 		if (n > 0)

@@ -1,5 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/05 23:17:43 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/05 23:18:30 by sgouzi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	count_digits(int n)
 {
@@ -23,7 +34,7 @@ static int	count_digits(int n)
 	return (i);
 }
 
-void	fill_rec(int n, char *buff, int *i)
+static void	fill_rec(int n, char *buff, int *i)
 {
 	if (n > 0)
 	{
@@ -33,7 +44,7 @@ void	fill_rec(int n, char *buff, int *i)
 	}
 }
 
-int	ft_handle(int i, char *buff, int n)
+static int	ft_handle(int i, char *buff, int n)
 {
 	char	*max;
 
@@ -55,6 +66,7 @@ int	ft_handle(int i, char *buff, int n)
 	}
 	return (0);
 }
+
 char	*ft_itoa(int n)
 {
 	char	*buff;

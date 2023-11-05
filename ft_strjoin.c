@@ -1,4 +1,16 @@
-#include "ft_libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/05 22:36:53 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/05 22:37:13 by sgouzi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	len(char const *s1)
 {
@@ -12,10 +24,10 @@ static int	len(char const *s1)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int output_length;
-	char *output;
-	int i;
-	int j;
+	int		output_length;
+	char	*output;
+	int		i;
+	int		j;
 
 	output_length = len(s1) + len(s2) + 1;
 	output = (char *)malloc(output_length);

@@ -1,4 +1,16 @@
-#include "ft_libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/05 21:35:19 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/05 22:31:11 by sgouzi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	in_set(char c, char const *set)
 {
@@ -14,21 +26,27 @@ static int	in_set(char c, char const *set)
 	return (0);
 }
 
+static void	helper(int	*i, char const *set, char const *s1)
+{
+	while (s1[*i])
+	{
+		if (!in_set(s1[*i], set))
+			break ;
+		(*i)++;
+	}
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	int start;
-	int end = strlen(s1);
-	char *buff;
+	int		i;
+	int		start;
+	int		end;
+	char	*buff;
 
 	i = 0;
-	while (s1[i])
-	{
-		if (!in_set(s1[i], set))
-			break ;
-		i++;
-	}
+	helper(&i, set, s1);
 	start = i;
+	end = strlen(s1);
 	while (end - 1 > start)
 	{
 		if (!in_set(s1[end - 1], set))

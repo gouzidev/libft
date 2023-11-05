@@ -1,7 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <strings.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/05 22:41:07 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/05 23:38:08 by sgouzi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	count_words(char const *s1, char c)
 {
@@ -55,6 +64,7 @@ static char	*ft_copy(char const **str, char c)
 	buf[k] = '\0';
 	return (buf);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	int		wc;

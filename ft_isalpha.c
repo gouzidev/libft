@@ -6,10 +6,10 @@
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:54:40 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/10/30 21:49:05 by sgouzi           ###   ########.fr       */
+/*   Updated: 2023/11/05 23:57:05 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_libft.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

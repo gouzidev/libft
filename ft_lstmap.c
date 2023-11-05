@@ -1,12 +1,22 @@
-#include "ft_libft.h"
-#include "stdio.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/05 23:11:34 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/05 23:15:13 by sgouzi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*head;
 	t_list	*ptr_old_lst;
 
-	printf("last -> \n");
 	ptr_old_lst = lst;
 	head = lst;
 	if (lst)
@@ -20,35 +30,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	ft_lstclear(&ptr_old_lst, del);
 	return (head);
-}
-
-#include <stdio.h>
-
-char	*print_content(void *node)
-{
-	return ((char *)(((t_list *)node)->content));
-}
-
-void delete (void *content)
-{
-	int	i;
-
-	i = 0;
-	while (((char *)content)[i])
-	{
-		((char *)content)[i++] = 'x';
-	}
-}
-int	main(void)
-{
-	t_list *n1 = malloc(sizeof(t_list));
-	t_list *n2 = malloc(sizeof(t_list));
-	t_list *n3 = malloc(sizeof(t_list));
-	n1->content = "1";
-	n2->content = "2";
-	n3->content = "3";
-	n1->next = n2;
-	n2->next = n3;
-	n3->next = NULL;
-	ft_lstmap(n1, (void *)&print_content, delete);
 }

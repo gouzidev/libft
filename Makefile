@@ -12,7 +12,7 @@ $(NAME): $(OBJECTS)
 	$(CC) -c $(CFLAGS) $?
 
 clean:
-	rm -f $(OBJECTS) $(BOBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -54,7 +54,7 @@ re: fclean all
 # ft_isdigit.c \
 # ft_isprint.c \
 # ft_itoa.c \
-# ft_libft.h \
+# libft.h \
 # ft_lstadd_back.c \
 # ft_lstadd_front.c \
 # ft_lstclear.c \
