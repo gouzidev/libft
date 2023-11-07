@@ -6,7 +6,7 @@
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:17:43 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/11/05 23:18:30 by sgouzi           ###   ########.fr       */
+/*   Updated: 2023/11/07 02:51:21 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char	*ft_itoa(int n)
 	buff = malloc((digit_len + 1) * sizeof(char));
 	if (buff == 0)
 		return (0);
+	buff[digit_len] = '\0';
 	i = 0;
 	if (ft_handle(i, buff, n) == 1)
 		return (buff);

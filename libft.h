@@ -6,7 +6,7 @@
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 23:21:49 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/11/05 23:56:08 by sgouzi           ###   ########.fr       */
+/*   Updated: 2023/11/07 02:21:32 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putchar_fd(char c, int fd);
 
-void static			ft_print_rec(int n, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list

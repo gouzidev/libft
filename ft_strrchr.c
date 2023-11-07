@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *str, int c)
 	last = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
-		{
-			last = (char *)&str[i];
-		}
+		if (str[i] == (char)c)
+			last = (((char *)str + i));
 		i++;
 	}
+	if (str[i] == (char)c)
+		last = (((char *)str + i));
 	return (last);
 }
