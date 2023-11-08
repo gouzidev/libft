@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	count_words(char const *s1, char c)
 {
@@ -45,12 +46,16 @@ static char	*ft_copy(char const **str, char c)
 
 	i = 0;
 	l = 0;
+	printf("goint to copy from -> %c\n", **str);
+
 	while ((*str)[i])
 	{
 		if ((*str)[i++] == c)
 			break ;
 		l++;
 	}
+	
+
 	i = 0;
 	buf = malloc((l + 1) * sizeof(char));
 	if (buf == NULL)
@@ -73,12 +78,17 @@ char	**ft_split(char const *s, char c)
 
 	wc = count_words(s, c);
 	res = (char **)malloc((wc + 1) * sizeof(char *));
+	if (res == NULL)
+		return (NULL);
 	w = 0;
 	while (*s)
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
+		if (*s && *s == c)
+		{
+			while (*s && *s == c)
+				s++;
+		}
+		else if (*s && *s != c)
 			res[w++] = ft_copy(&s, c);
 		else
 			break ;
@@ -88,13 +98,13 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-/*int main()
+int main()
 {
-	char const *txt = "a     b";
+	char const *txt = "abcd 123    xxxxx";
 	char **res = ft_split(txt, ' ');
 	int i = 0;
-	while (i < 3)
+	while (i < 6)
 	{
 		printf("-> %s\n", res[i++]);
 	}
-}*/
+}

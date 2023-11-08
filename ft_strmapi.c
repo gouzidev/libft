@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	buff = malloc((ft_strlen((char *)s) + 1) * sizeof(char));
+	if (buff == NULL)
+		return (NULL);
 	while (s[i])
 	{
 		buff[i] = (*f)(i, s[i]);

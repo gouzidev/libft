@@ -31,6 +31,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	output_length = len(s1) + len(s2) + 1;
 	output = (char *)malloc(output_length);
+	if (output == NULL)
+		return (NULL);
 	i = 0;
 	while (i < len(s1))
 	{

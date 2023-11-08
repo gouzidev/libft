@@ -24,34 +24,25 @@
 
 #include "libft.h"
 
-static size_t	ft_len(char *s)
-{
-	size_t	l;
-
-	l = 0;
-	while (s[l])
-		l++;
-	return (l);
-}
-
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	lsrc;
 	size_t	ldst;
 	size_t	i;
+	size_t	j;
 
-	lsrc = ft_len((char *)src);
-	ldst = ft_len(dst);
-	if (size <= lsrc + ldst)
+	lsrc = ft_strlen((char *)src);
+	ldst = ft_strlen(dst);
+	if (size <= ldst)
 		return (size + lsrc);
-	else
+	i = 0;
+	j = ldst;
+	while (i < size - ldst - 1 && src[i])
 	{
-		i = 0;
-		while (i < size - ldst)
-		{
-			dst[ldst + i] = src[i];
-			i++;
-		}
-		return (ldst + lsrc);
+		dst[j] = src[i];
+		i++;
+		j++;
 	}
+	dst[j] = '\0';
+	return (ldst + lsrc);
 }
