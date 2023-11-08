@@ -6,7 +6,7 @@ OBJECTS = $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar -r $@ $?
+	ar -rcs $@ $?
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
@@ -18,32 +18,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # SOURCES = ft_atoi.c \
 # ft_bzero.c \
