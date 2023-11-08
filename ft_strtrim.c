@@ -38,7 +38,7 @@ static int	in_set(char c, char const *set)
 	return (0);
 }
 
-static void	helper(int	*i, char const *set, char const *s1)
+static void	helper(int *i, char const *set, char const *s1, int *start)
 {
 	while (s1[*i])
 	{
@@ -46,6 +46,7 @@ static void	helper(int	*i, char const *set, char const *s1)
 			break ;
 		(*i)++;
 	}
+	*start = *i;
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -56,8 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*buff;
 
 	i = 0;
-	helper(&i, set, s1);
-	start = i;
+	helper(&i, set, s1, &start);
 	end = strlen(s1);
 	while (end - 1 > start)
 	{
@@ -68,8 +68,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	buff = malloc((end - start + 1) * sizeof(char));
 	if (buff == NULL)
-        return (NULL);
-    while (start + i < end)
+		return (NULL);
+	while (start + i < end)
 	{
 		buff[i] = s1[start + i];
 		i++;

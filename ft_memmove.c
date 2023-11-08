@@ -14,8 +14,8 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
-	char *d;
-	char *s;
+	char	*d;
+	char	*s;
 
 	s = (char *)src;
 	d = (char *)dst;
@@ -32,11 +32,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		while (len > 0)
-		{
-			d[len - 1] = s[len - 1];
-			len--;
-		}
+		while (len-- > 0)
+			d[len] = s[len];
 	}
 	return (dst);
 }
