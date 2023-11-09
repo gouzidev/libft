@@ -17,13 +17,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*last;
 
 	if (*lst == NULL)
-	{
 		ft_lstadd_front(lst, new);
-	}
 	else
 	{
-		last = ft_lstlast(*lst);
+		last = *lst;
+		while (last->next)
+			last = last->next;
 		last->next = new;
-		new->next = NULL;
 	}
 }

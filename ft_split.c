@@ -13,11 +13,11 @@
 #include "libft.h"
 #include <stdio.h>
 
-/*char **free_all(char **str)
+char **free_all(char **str)
 {
 	int	count;
 
-}*/
+}
 static int	count_words(char const *s1, char c)
 {
 	int	count;
@@ -70,6 +70,7 @@ static char	*ft_copy(char const **str, char c)
 	buf[k] = '\0';
 	return (buf);
 }
+/* why used i and k if can use k only? */
 
 char	**ft_split(char const *s, char c)
 {
