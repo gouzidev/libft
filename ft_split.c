@@ -15,9 +15,9 @@
 
 /*char **free_all(char **str)
 {
-	
-}*/
+	int	count;
 
+}*/
 static int	count_words(char const *s1, char c)
 {
 	int	count;
@@ -84,27 +84,13 @@ char	**ft_split(char const *s, char c)
 	w = 0;
 	while (*s)
 	{
-		if (*s && *s == c)
-		{
-			while (*s && *s == c)
-				s++;
-		}
-		else if (*s && *s != c)
-			res[w++] = ft_copy(&s, c);
-		else
+		if (!*s)
 			break ;
-		s++;
+		if (*s != c)
+			res[w++] = ft_copy(&s, c);
+		while (*s && *s == c)
+			s++;
 	}
 	res[w] = 0;
 	return (res);
 }
-/*int main()
-{
-	char const *txt = "abcd 123    xxxxx";
-	char **res = ft_split(txt, ' ');
-	int i = 0;
-	while (i < 6)
-	{
-		printf("-> %s\n", res[i++]);
-	}
-}*/
