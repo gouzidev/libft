@@ -13,11 +13,14 @@
 #include "libft.h"
 #include <stdio.h>
 
-char **free_all(char **str)
+char	**free_all(char **res, int w)
 {
-	int	count;
-
+	while (w-- > 0)
+		free(res[w]);
+	free(res);
+	return (NULL);
 }
+
 static int	count_words(char const *s1, char c)
 {
 	int	count;
@@ -42,55 +45,30 @@ static int	count_words(char const *s1, char c)
 	return (count);
 }
 
-static char	*ft_copy(char const **str, char c)
-{
-	int		i;
-	int		k;
-	int		l;
-	char	*buf;
-
-	i = 0;
-	l = 0;
-	while ((*str)[i])
-	{
-		if ((*str)[i++] == c)
-			break ;
-		l++;
-	}
-	i = 0;
-	buf = malloc((l + 1) * sizeof(char));
-	if (buf == NULL)
-		return (0);
-	k = 0;
-	while (i++ < l)
-	{
-		buf[k++] = **str;
-		(*str)++;
-	}
-	buf[k] = '\0';
-	return (buf);
-}
-/* why used i and k if can use k only? */
-
 char	**ft_split(char const *s, char c)
 {
-	int		wc;
 	int		w;
 	char	**res;
+	int		i;
+	int		j;
 
-	wc = count_words(s, c);
-	res = (char **)malloc((wc + 1) * sizeof(char *));
+	i = 0;
+	res = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (res == NULL)
 		return (NULL);
 	w = 0;
-	while (*s)
+	while (s[i])
 	{
-		if (!*s)
+		while (s[i] && s[i] == c)
+			i++;
+		if (!s[i])
 			break ;
-		if (*s != c)
-			res[w++] = ft_copy(&s, c);
-		while (*s && *s == c)
-			s++;
+		j = 0;
+		while (s[i] && s[i] != c && ++j)
+			i++;
+		res[w++] = ft_substr(s, i - j, j);
+		if (res[w - 1] == NULL)
+			return (free_all(res, w - 1));
 	}
 	res[w] = 0;
 	return (res);
