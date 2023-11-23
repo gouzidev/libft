@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	**free_all(char **res, int w)
+static char	**free_all(char **res, int w)
 {
 	while (w-- > 0)
 		free(res[w]);
@@ -45,6 +44,16 @@ static int	count_words(char const *s1, char c)
 	return (count);
 }
 
+static char	**handle_null_malloc(char const *s, char c)
+{
+	char	**res;
+
+	if (!s)
+		return (NULL);
+	res = ((char **)malloc((count_words(s, c) + 1) * sizeof(char *)));
+	return (res);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		w;
@@ -53,7 +62,7 @@ char	**ft_split(char const *s, char c)
 	int		j;
 
 	i = 0;
-	res = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	res = handle_null_malloc(s, c);
 	if (res == NULL)
 		return (NULL);
 	w = 0;

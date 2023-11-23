@@ -1,3 +1,4 @@
+CC = cc
 NAME = libft.a
 FLAGS = -Wall -Wextra -Werror
 SOURCES = ft_isalpha.c \
@@ -36,27 +37,32 @@ ft_putendl_fd.c \
 ft_putnbr_fd.c
 OBJECTS = $(SOURCES:.c=.o)
 
-SOURCES_BONUS = ft_lstadd_back.c \
-ft_lstclear.c \
-ft_lstiter.c \
-ft_lstmap.c \
-ft_lstsize.c \
-ft_lstadd_front.c \
-ft_lstdelone.c \
-ft_lstlast.c \
-ft_lstnew.c
+SOURCES_BONUS = ft_lstadd_back_bonus.c \
+ft_lstclear_bonus.c \
+ft_lstiter_bonus.c \
+ft_lstmap_bonus.c \
+ft_lstsize_bonus.c \
+ft_lstadd_front_bonus.c \
+ft_lstdelone_bonus.c \
+ft_lstlast_bonus.c \
+ft_lstnew_bonus.c
 
 BOBJECTS = $(SOURCES_BONUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar -rcs $@ $?
+	ar -rc $@ $^
+
+%.o:%.c
+	$(CC) -c $(FLAGS) $<
 
 bonus: $(BOBJECTS)
-	ar -rcs $(NAME) $?
+	
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $?
+$(BOBJECTS): $(SOURCES_BONUS)
+	$(CC) -c $(FLAGS) $(SOURCES_BONUS)
+	ar -rc $(NAME) $(BOBJECTS)
 
 clean:
 	rm -f $(OBJECTS) $(BOBJECTS)

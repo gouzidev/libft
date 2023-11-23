@@ -20,6 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	output_len;
 	size_t	str_len;
 
+	if (!s)
+		return (NULL);
 	str_len = 0;
 	while (s[str_len])
 		str_len++;
@@ -34,9 +36,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	j = start;
 	while (i < output_len)
-	{
 		sub[i++] = s[j++];
-	}
 	sub[i] = '\0';
 	return ((char *)sub);
 }

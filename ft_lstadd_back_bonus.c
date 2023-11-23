@@ -1,36 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 22:48:51 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/10/31 16:27:47 by sgouzi           ###   ########.fr       */
+/*   Created: 2023/11/15 15:44:42 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/15 15:44:43 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
+	t_list	*last;
 
-	i = 0;
-	while (i < len)
-		((unsigned char *)b)[i++] = (unsigned char)c;
-	return (b);
+	if (lst)
+	{
+		if (*lst == NULL)
+			ft_lstadd_front(lst, new);
+		else
+		{
+			last = *lst;
+			while (last->next)
+				last = last->next;
+			last->next = new;
+		}
+	}
 }
 
 // #include <stdio.h>
 // int main()
 // {
-// 	char arr[] = "hello_world";
-// 	ft_memset(arr, 99, 6);
-// 	int i = 0;
-// 	while (i < 12)
+// 	t_list *head = NULL;
+// 	t_list **hhead = &head;
+// 	ft_lstadd_back(hhead, ft_lstnew("str1"));
+// 	ft_lstadd_back(hhead, NULL);
+// 	ft_lstadd_back(hhead, NULL);
+
+// 	while (head)
 // 	{
-// 		printf("%c", arr[i]);
-// 		i++;
+// 		printf("-> %s\n", (char *) head->content);
+// 		head = head->next;
 // 	}
 // }

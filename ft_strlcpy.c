@@ -29,3 +29,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (lsrc);
 }
+// #include <stdio.h>
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	// printf("%zu \n", ft_strlcpy(NULL, "dst", 1));
+// 	printf("%zu \n", ft_strlcpy("dst", NULL, 3));
+// }

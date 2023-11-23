@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *str, int c)
 	while (str[i])
 	{
 		if (str[i] == (char)c)
-			last = (((char *)str + i));
+			last = ((char *)str + i);
 		i++;
 	}
 	if (str[i] == (char)c)

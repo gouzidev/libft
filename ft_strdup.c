@@ -33,3 +33,9 @@ char	*ft_strdup(const char *s1)
 	buf[i] = '\0';
 	return (buf);
 }
+
+// int main()
+// {
+// 	printf("ters   ->  %s\n", (strdup(NULL)));
+// 	printf("mine   ->  %s\n", (ft_strdup(NULL)));
+// }

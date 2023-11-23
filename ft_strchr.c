@@ -24,6 +24,23 @@ char	*ft_strchr(const char *str, int c)
 		i++;
 	}
 	if (str[i] == (char)c)
-		return ((char *)&str[i]);
+		return (((char *)str + i));
 	return (NULL);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+// int	main(void)
+// {
+// 	printf("ters   ->  %s\n", strchr("STRING", 'S'));
+// 	printf("mine   ->  %s\n", ft_strchr("STRING", 'S'));
+
+// 	printf("ters   ->  %s\n", strchr("STRING\0after", 0) + 1);
+// 	printf("mine   ->  %s\n", ft_strchr("STRING\0after", 0) + 1);
+
+// 	printf("ters   ->  %s\n", strchr("STRING", 0));
+// 	printf("mine   ->  %s\n", ft_strchr("STRING", 0));
+
+// 	printf("ters   ->  %s\n", strchr(NULL, 'c'));
+// 	printf("mine   ->  %s\n", ft_strchr(NULL, 'c'));
+// }

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgouzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 22:33:53 by sgouzi            #+#    #+#             */
-/*   Updated: 2023/11/07 02:01:33 by sgouzi           ###   ########.fr       */
+/*   Created: 2023/11/15 15:52:51 by sgouzi            #+#    #+#             */
+/*   Updated: 2023/11/15 15:52:52 by sgouzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	t_list	*new_node;
 
-	str1 = ((unsigned char *)s1);
-	str2 = ((unsigned char *)s2);
-	i = 0;
-	if (n == 0)
+	new_node = malloc(sizeof(t_list));
+	if (new_node == 0)
 		return (0);
-	while (str2[i] != '\0' && str1[i] == str2[i] && n > 1)
-	{
-		i++;
-		n--;
-	}
-	return (str1[i] - str2[i]);
+	new_node->next = NULL;
+	new_node->content = content;
+	return (new_node);
 }
